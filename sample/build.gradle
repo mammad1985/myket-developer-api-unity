@@ -1,0 +1,26 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.jetbrains.kotlin.android'
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "33.0.2"
+
+    dataBinding {
+        android.buildFeatures.dataBinding = true
+    }
+
+    defaultConfig {
+        applicationId "ir.myket.developerapi"
+        minSdkVersion 16
+        targetSdkVersion 33
+        versionCode 1
+        versionName "2.0"
+    }
+    namespace 'ir.myket.developerapi.sample'
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.core:core-ktx:1.8.0'
+    implementation project(':developer-api')
+}

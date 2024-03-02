@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <queries>
+        <package android:name="ir.mservices.market" />
+        <intent>
+            <action android:name="ir.mservices.market.MyketDeveloperApiService.BIND" />
+            <data android:mimeType="*/*" />
+        </intent>
+    </queries>
+    <application>
+        <activity
+            android:name="ir.myket.developerapi.ProxyActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Transparent" />
+
+        <receiver
+            android:name=".service.ApiReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="ir.mservices.market.developerPing" />
+                <action android:name="ir.mservices.market.developerSupport" />
+                <action android:name="ir.mservices.market.isUserLogin" />
+                <action android:name="ir.mservices.market.getAppUpdate" />
+                <action android:name="ir.mservices.market.getAccountInfo" />
+                <action android:name="ir.mservices.market.saveData" />
+                <action android:name="ir.mservices.market.loadData" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

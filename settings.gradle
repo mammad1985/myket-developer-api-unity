@@ -1,0 +1,2 @@
+rootProject.name = "myket-developer-api"
+include (':sample', ':developer-api')
