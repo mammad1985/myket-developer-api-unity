@@ -402,20 +402,24 @@ class Core(context: Context) {
     }
 
     private fun getPackageInfo(): PackageInfo? =
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            context.packageManager.getPackageInfo(
-                MYKET_PACKAGE_NAME,
-                PackageManager.PackageInfoFlags.of((PackageManager.MATCH_DISABLED_COMPONENTS).toLong())
-            )
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            @Suppress("DEPRECATION")
-            context.packageManager.getPackageInfo(
-                MYKET_PACKAGE_NAME,
-                PackageManager.MATCH_DISABLED_COMPONENTS
-            )
-        } else {
-            @Suppress("DEPRECATION")
-            context.packageManager.getPackageInfo(MYKET_PACKAGE_NAME, 0)
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                context.packageManager.getPackageInfo(
+                    MYKET_PACKAGE_NAME,
+                    PackageManager.PackageInfoFlags.of((PackageManager.MATCH_DISABLED_COMPONENTS).toLong())
+                )
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                @Suppress("DEPRECATION")
+                context.packageManager.getPackageInfo(
+                    MYKET_PACKAGE_NAME,
+                    PackageManager.MATCH_DISABLED_COMPONENTS
+                )
+            } else {
+                @Suppress("DEPRECATION")
+                context.packageManager.getPackageInfo(MYKET_PACKAGE_NAME, 0)
+            }
+        } catch (e: PackageManager.NameNotFoundException) {
+            null
         }
 
     private fun isMarketInstalled() = getPackageInfo() != null
