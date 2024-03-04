@@ -10,12 +10,12 @@
     </queries>
     <application>
         <activity
-            android:name="ir.myket.developerapi.ProxyActivity"
+            android:name=".ProxyActivity"
             android:exported="true"
+            android:label="MyketIAB"
             android:theme="@style/Theme.Transparent" />
 
-        <receiver
-            android:name=".service.ApiReceiver"
+        <receiver android:name=".service.ApiReceiver"
             android:exported="true">
             <intent-filter>
                 <action android:name="ir.mservices.market.developerPing" />

@@ -10,6 +10,7 @@ import android.os.Bundle
 import android.os.ResultReceiver
 import android.util.Log
 import android.widget.Toast
+import com.myket.BuildConfig
 import ir.myket.developerapi.data.ApiResult
 import ir.myket.developerapi.data.Update
 import ir.myket.developerapi.service.ICore
